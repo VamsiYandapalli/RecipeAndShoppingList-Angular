@@ -16,8 +16,8 @@ import { CoreModule } from './core.modulet';
     SharedModule,
     CoreModule,
 
-    ShoppinglistRoutingModule,
     AppRoutingModule,
+    ShoppinglistRoutingModule,
   ],
   bootstrap: [AppComponent],
 })
