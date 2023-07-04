@@ -9,4 +9,6 @@ export class LoggingService {
     console.log(this.lastLog);
     this.lastLog = message;
   }
+
+  //THis is a dummy comment
 }
