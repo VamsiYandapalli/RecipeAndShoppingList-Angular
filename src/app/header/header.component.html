@@ -1,0 +1,78 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- This code will collpase the header if the screen size is small -->
+    <!-- <div class="navbar-header">
+      <a href="#" class="navbar-brand">Recipe Book</a>
+    </div>
+
+    <div class="collapse navbar-collapse"> -->
+    <!--Add just navbar-default for a fixed navbar which doesn't collapse even if the screen size is small -->
+    <!-- For hamburger icon -->
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle"
+        (click)="collapsed = !collapsed"
+      >
+        <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+      </button>
+      <a routerLink="/" class="navbar-brand">Recipe Book</a>
+    </div>
+    <div
+      class="navbar-collapse"
+      [class.collapse]="collapsed"
+      (window:resize)="collapsed = true"
+    >
+      <!-- end -->
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active" *ngIf="!isAuthenticated">
+          <a [routerLink]="['/auth']">Authenticate</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="isAuthenticated">
+          <a [routerLink]="['/recipes']">Recipes</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/shopping-list']">Shopping List</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="isAuthenticated">
+          <a style="cursor: pointer" (click)="onLogout()">Logout</a>
+        </li>
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+          <a style="cursor: pointer" class="dropdown-toggle" role="button"
+            >Manage<span class="caret"></span
+          ></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a style="cursor: pointer" (click)="onSaveData()">Save Data</a>
+            </li>
+            <li>
+              <a style="cursor: pointer" (click)="onFetchData()">Fetch Data</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- <nav class="navbar navbar-light bg-light navbar-expand-md">
+  <a href="#" class="navbar-brand">Recipe Book</a>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Recipes</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Shopping List</a></li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="dropdown nav-item">
+        <a href="#" class="dropdown-toggle nav-link" role="button"
+          >Manage <span class="caret"></span
+        ></a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item"><a href="#">Save Data</a></li>
+          <li class="dropdown-item"><a href="#">Fetch Data</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav> -->
